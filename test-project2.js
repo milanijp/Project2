@@ -1,26 +1,17 @@
 'use strict';
 
-/*
- * This file tests the Project #2 JavaScript assignment problems. It prints what
- * it finds to the console log and updates the text being displayed in the window with a
- * summary of the results.
- */
 
-/* eslint-env browser, node */
 var MakeMultiFilter;
 var TemplateProcessor;
 
 var anonymous = function() {
 
-// Result message for Problems 1-3
   var p1Message = 'SUCCESS';
   var p2Message = 'SUCCESS';
   var p3Message = 'SUCCESS';
 
-// Keep track of all the var statements
   var varDeclared = ['varDeclared', 'p1Message', 'p2Message', 'p3Message'];
 
-// Utility functions
   function arraysAreTheSame(a1, a2) {
     if (!Array.isArray(a1) || !Array.isArray(a2) || (a1.length !== a2.length)) {
       return false;
@@ -33,7 +24,6 @@ var anonymous = function() {
     return true;
   }
 
-// ********************* Test MakeMultiFilter
 
   if (typeof MakeMultiFilter !== 'function') {
     console.error('MakeMultiFilter is not a function', typeof MakeMultiFilter);
@@ -109,7 +99,6 @@ var anonymous = function() {
   }
   console.log('Test MakeMultiFilter:', p1Message);
 
-// ********************* Test TemplateProcessor
 
   if (typeof TemplateProcessor !== 'function') {
     console.error('TemplateProcessor is not a function', typeof TemplateProcessor);
@@ -136,7 +125,6 @@ var anonymous = function() {
   }
   console.log('Test TemplateProcessor:', p2Message);
 
-// ********************* Test to see if the symbols we defined are in the global address space
 
   varDeclared.forEach(function (sym) {
     if (window[sym] !== undefined) {
@@ -153,9 +141,7 @@ var anonymous = function() {
     p3Message: p3Message,
   };
 
-// Once the browser loads our companion HTML in test-project2.html we
-// update it with the results of our testing. This code will make more
-// sense after the next project.
+
   window.onload = function () {
     document.getElementById('p1').innerHTML = p1Message;
     document.getElementById('p2').innerHTML = p2Message;
