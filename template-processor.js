@@ -5,6 +5,18 @@ function TemplateProcessor(template) {
 
 TemplateProcessor.prototype.fillIn = function(dictionary) {
     var res = this.template;
-    for (var res) {
+    var re = /{{[^{]*}}/g;
+    var match = this.template.match(re);
+    var pre;
+    var key;
+    var after;
+    for (var i = 0; i < match.length; i++) {
+        pre = match[i];
+        key = pre.replace("{{", "");
+        key = key.replace("}}", "");
+        after = dictionary[key] || '';
+
+        res = res.replace(pre, after);
+    }
     return res;
-}
+};
