@@ -8,7 +8,6 @@ function MakeMultiFilter(array) {
         }
         currentArray = currentArray.filter(filter);
         if (callback) {
-            // callback.call(this, parameters...);
             callback.call(originalArray, currentArray);
         }
         return arrayFilterer;
